@@ -1,18 +1,18 @@
-# 命令行查询火车票余票 - Python3
+# 🚄 命令行查询火车票余票 - Python3
 
-- Install
+- 🔌 Install
 ```
 pip install docopt
 pip install prettytable
 pip install colorama
 ```
 
-- Usage:
+- 🖥 Usage:
 ```cmd
 python tickets.py [-dgktz] <from> <to> <date>
 ```
 
-- Options:
+- 📖 Options:
 ```cmd
 -h --help       显示帮助
 -d              动车
@@ -22,7 +22,7 @@ python tickets.py [-dgktz] <from> <to> <date>
 -z              直达
 ```
 
-- Example:
+- ⌨ Example:
 ```cmd
 python tickets.py 上海 苏州 2017-10-20
 python tickets.py -dg 上海 苏州 2017-10-20
