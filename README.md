@@ -8,12 +8,12 @@ pip install colorama
 ```
 
 - 🖥 Usage:
-```cmd
+```
 python tickets.py [-dgktz] <from> <to> <date>
 ```
 
 - 📖 Options:
-```cmd
+```
 -h --help       显示帮助
 -d              动车
 -g              高铁
@@ -23,7 +23,7 @@ python tickets.py [-dgktz] <from> <to> <date>
 ```
 
 - ⌨ Example:
-```cmd
+```
 python tickets.py 上海 苏州 2017-10-20
 python tickets.py -dg 上海 苏州 2017-10-20
 python tickets.py -g 上海 苏州 2017-10-20
