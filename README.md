@@ -1,8 +1,15 @@
 # 命令行查询火车票余票 - Python3
 
+- Install
+```
+pip install docopt
+pip install prettytable
+pip install colorama
+```
+
 - Usage:
 ```cmd
-python ticket.py [-dgktz] <from> <to> <date>
+python tickets.py [-dgktz] <from> <to> <date>
 ```
 
 - Options:

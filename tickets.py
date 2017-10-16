@@ -5,7 +5,7 @@
 命令行查询火车票余票
 
 Usage:
-    python ticket.py [-dgktz] <from> <to> <date>
+    ticket [-dgktz] <from> <to> <date>
 
 Options:
     -h --help       显示帮助
