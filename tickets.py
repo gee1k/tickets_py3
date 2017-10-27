@@ -132,7 +132,9 @@ class Cli:
             exit(0)
 
         try:
-            if datetime.strptime(self.date, '%Y-%m-%d') < datetime.now():
+            date = datetime.strptime(self.date, '%Y-%m-%d')
+            self.date = date.strftime('%Y-%m-%d')
+            if date < datetime.now():
                 print(Util.colored('red', u'请输入有效日期！'))
                 exit(0)
         except ValueError:
@@ -141,6 +143,7 @@ class Cli:
 
     def run(self):
         url = self.via_url.format(date=self.date, from_station=self.from_station, to_station=self.to_station)
+        print('URL --> %s' % url)
         response = requests.get(url, verify=False)
         result = response.json()
         if 'data' not in result:
