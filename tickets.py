@@ -120,8 +120,10 @@ class Cli:
 
     def __init__(self):
         self.arguments = docopt(__doc__, version=version)
-        self.from_station = stations.get_telecode(self.arguments['<from>'])
-        self.to_station = stations.get_telecode(self.arguments['<to>'])
+        self.from_station_name = self.arguments['<from>']
+        self.to_station_name = self.arguments['<to>']
+        self.from_station = stations.get_telecode(self.from_station_name)
+        self.to_station = stations.get_telecode(self.to_station_name)
         self.date = self.arguments['<date>']
         self.validate_arguments()
         self.options = ''.join([key for key, value in self.arguments.items() if value is True])
@@ -142,8 +144,13 @@ class Cli:
             exit(0)
 
     def run(self):
+        print(Util.colored('green', '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>查询参数'
+                                    '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'))
+        print(Util.colored('red', '出发地【{}】 -- 目的地【{}】 -- 出发日期【{}】'
+                           .format(self.from_station_name, self.to_station_name, self.date)))
+        print(Util.colored('green', '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>查询结果'
+                                    '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'))
         url = self.via_url.format(date=self.date, from_station=self.from_station, to_station=self.to_station)
-        print('URL --> %s' % url)
         response = requests.get(url, verify=False)
         result = response.json()
         if 'data' not in result:
